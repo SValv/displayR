@@ -1,0 +1,14 @@
+Package: displayR
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: as.person("Simon Valverde")
+Maintainer: Simon Valverde <s.valverde146@gmail.com>
+Description: displayR is a package for easy and quick exploration and visualisation of data directed to people with little expirience in R.    It makes it easy for people with less to no expirience in R to make high quality plots and get insight into their data.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: data.table, dplyr, DT, ggplot2, plotly, readxl, shiny,
+        shinydashboard, shinythemes
+RoxygenNote: 7.1.0
+Built: R 3.6.3; ; 2020-04-21 20:20:26 UTC; windows
