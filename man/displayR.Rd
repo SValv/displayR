@@ -5,10 +5,10 @@
 displayR(DF = "None", factordeclare = TRUE, limit = 8, na.rm = TRUE, colorPalette = "None")
 }
 \description{
-Main function of the displayR package. displayR is a package for easy and quick exploration and visualisation of data directed to people with little expirience in R
+Main function of the displayR package. displayR is a package for easy and quick exploration and visualisation of data directed to people with little experience in R
 }
 \arguments{
-  \item{DF}{a dataframe or object convertable to a dataframe that will be displayed. If you dont specify a dataframe, a menu to select one will open. It works with most formats like .txt, .csv etc (using fread). It cant open .xlsx files, if you encounter any problems with loading the data, try loading it manually.}
+  \item{DF}{a dataframe or object convertable to a dataframe that will be displayed. If you dont specify a dataframe, a menu to select one will open. It works with most formats like .txt, .csv etc (using fread), it also works with .xls/.xlsx data using readxl. if you encounter any problems with loading the data, try loading it manually.}
 
   \item{factordeclare}{if your dataframe isnt already structured (the factors are not declared as factors) this argument will do it for you by using the limit argument as margin.}
 
@@ -22,7 +22,7 @@ Main function of the displayR package. displayR is a package for easy and quick 
 
 \note{
 if you encounter any bugs or problems please feel free to contact me on github (@svalv) or via email to s.valverde146@gmail.com.
-Since i am farely new to coding and have no expirience with development of anything this is actually very likely.
+Since i am farely new to coding and have no experience with development of anything this is actually very likely.
 I'd also welcome feedback of any kind to improve this little baby-project.
 }
 

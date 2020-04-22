@@ -12,18 +12,18 @@ output:
 
 ## Dear User
 
-this is a package for easy and quick exploration and visualisation of data made by Simon Valverde(@svalv),
+This is a package for easy and quick exploration and visualisation of data made by Simon Valverde(@svalv),
 if you encounter any bugs or problems please feel free to contact me on github or via email to s.valverde146@gmail.com.
-Since i am farely new to coding and have no expirience with development of anything this is actually very likely.
+Since i am farely new to coding and have no experience with development of anything this is actually very likely.
 I'd also welcome feedback of any kind to improve this little baby-project. 
 
-This project is generally directed to people with little expirience in R who are interessted in easy and quick visualisation and exploration.
+This project is generally directed to people with little experience in R who are interested in easy and quick visualisation and exploration.
 
 ### Usage 
 
 displayR has only one function called "displayR" it has five arguments:
 
-DF(default="None"): a dataframe or object convertable to a dataframe that will be displayed. If you dont specify a dataframe, a menu to select one will open. It works with most formats like .txt, .csv etc (using fread). It cant open .xlsx files, if you encounter any problems with loading the data, try loading it manually.
+DF(default="None"): a dataframe or object convertable to a dataframe that will be displayed. If you dont specify a dataframe, a menu to select one will open. It works with most formats like .txt, .csv etc (using fread), it also works with .xls/.xlsx data using readxl. If you encounter any problems with loading the data, try loading it manually.
 ```{r, eval=F}
 displayR()
 displayR(data)
@@ -34,7 +34,7 @@ factordeclare(default= *TRUE*): if your dataframe isnt already structured (the f
 displayR(data,factordeclare = FALSE)
 ```
 
-limit(default=*11*): describes the maximum number of instances where the variable is converted into a factor, if the instances(determined by the length of the unique-vector) are higher, the variable wont be converted.
+limit(default=*8*): describes the maximum number of instances where the variable is converted into a factor, if the instances(determined by the length of the unique-vector) are higher, the variable wont be converted.
 ```{r, eval=F}
 displayR(data,factordeclare = TRUE,limit = 8)
 ```
@@ -51,7 +51,7 @@ displayR(data,colorPalette = c("green","yellow","black",....,"other custom color
 
 if nothing is given the default palette is:
 ```{}
-c("blue","red","green","orange","violet")
+c("blue","red","green","orange","violet","black","cyan","yellow4","brown","grey60","pink")
 ```
 
 
@@ -69,7 +69,7 @@ The dependencies of this package are as follows:
 > * shinydashboard
 > * shinythemes
 
-Thanks a lot to the people providing these packages and to my colleage and friend Lena Pfeiffer who helped a lot with creative input.
+Thanks a lot to the people providing these packages, to Julia Himmelsbach who helped me to come up with a few functionalities and to my colleage and friend Lena Pfeiffer who helped a lot with creative input.
 
 ### Citations of packages
 
