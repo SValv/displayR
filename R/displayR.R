@@ -212,7 +212,7 @@ Thank you for using displayR!"
   sidebar3<-dashboardSidebar(
     selectInput('xcol2','X Variable', varlist),
     selectInput('ycol2','Y Variable', varlist),
-    selectInput('colcol2','Farbe', varlist),
+    selectInput('colcol2','Color', varlist),
     selectInput('geom1','Geom1', geomlist),
     conditionalPanel(
       condition = "input.geom1 == 'smooth'",

@@ -21,8 +21,8 @@ Main function of the displayR package. displayR is a package for easy and quick 
 }
 
 \note{
-if you encounter any bugs or problems please feel free to contact me on github (@svalv) or via email to s.valverde146@gmail.com.
-Since i am farely new to coding and have no experience with development of anything this is actually very likely.
+if you encounter any bugs or problems please feel free to contact me on github (@SValv) or via email to s.valverde146@gmail.com.
+Since I am farely new to coding and have no experience with development of anything this is actually very likely.
 I'd also welcome feedback of any kind to improve this little baby-project.
 }
 
