@@ -1,6 +1,6 @@
 Package: displayR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Easy and quick data exploration
 Version: 0.1.0
 Author: as.person("Simon Valverde")
 Maintainer: Simon Valverde <s.valverde146@gmail.com>
@@ -8,7 +8,15 @@ Description: displayR is a package for easy and quick exploration and visualisat
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: data.table, dplyr, DT, ggplot2, plotly, readxl, shiny,
-        shinydashboard, shinythemes
+Imports:
+    data.table,
+    dplyr,
+    DT,
+    ggplot2,
+    plotly,
+    readxl,
+    shiny,
+    shinydashboard,
+    shinythemes
 RoxygenNote: 7.1.0
-Built: R 3.6.3; ; 2020-04-21 20:20:26 UTC; windows
+
