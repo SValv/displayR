@@ -4,13 +4,16 @@ This is a package for easy and quick exploration and visualisation of data made 
 ## Installation
 
 If you want to install displayR you have to make sure you have devtools and Rtools installed.
-You can get Rtools here https://cran.r-project.org/bin/windows/Rtools/ - I used Rtools 35 for the installation, but higher versions should work too. To get devtools you can just use the line of code below:
+You can get Rtools here https://cran.r-project.org/bin/windows/Rtools/ - I used Rtools 35 for the installation, but higher versions should work too.
+
+To get devtools you can just use the line of code below:
 ```{r ,echo=T,eval=F}
 install.packages(devtools)
 ```
 
-if you followed the steps, to get displayR from my GitHub just use:
+If you followed the steps, to get displayR from my GitHub just use:
 
 ```{r ,echo=T,eval=F}
 devtools::install_github("SValv/displayR")
 ```
+There is a high probability that RStudio wants to update packages you got preinstalled from github. Just download all to ensure functionality.
