@@ -8,7 +8,7 @@ You can get Rtools here https://cran.r-project.org/bin/windows/Rtools/ - I used 
 
 To get devtools you can just use the line of code below:
 ```{r ,echo=T,eval=F}
-install.packages(devtools)
+install.packages("devtools")
 ```
 
 If you followed the steps, to get displayR from my GitHub just use:
