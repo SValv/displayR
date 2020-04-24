@@ -17,3 +17,17 @@ If you followed the steps, to get displayR from my GitHub just use:
 devtools::install_github("SValv/displayR")
 ```
 There is a high probability that RStudio wants to update packages you got preinstalled from github. Just download all to ensure functionality.
+
+To load and use it in your environment use on of the following options:
+
+```{r}
+## Option 1:
+displayR::displayR()
+
+## Option 2: 
+library(displayR)
+
+displayR()
+```
+Thanks a lot for using my Package, and lots of fun with it!
+SValv
