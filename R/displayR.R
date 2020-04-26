@@ -30,8 +30,11 @@ displayR<-function(DF="None",factordeclare=T,limit=8, na.rm=T, colorPalette="Non
     for(i in c(1:ncol(drata))){
       if (length(unique(unlist(drata[,i])))<=limit & !is.factor(as.data.frame(drata%>%select(i))[,1])){
         drata[,i]<-as.factor(unlist(drata[,i]))
-      }else if (length(unique(unlist(drata[,i])))>=limit& !is.factor(as.data.frame(drata%>%select(i))[,1])){
-        drata[,i]<-as.integer(unlist(drata[,i]))}
+      }else if (length(unique(unlist(drata[,i])))>=limit & !is.factor(as.data.frame(drata%>%select(i))[,1])){
+        if(is.character(as.data.frame(drata%>%select(i))[,1])){
+          drata[,i]<-sub(",",".",as.data.frame(drata%>%select(i))[,1])
+        }
+        drata[,i]<-as.numeric(unlist(drata[,i]))}
     }
     return(drata)
   }
@@ -201,8 +204,8 @@ Thank you for using displayR!"
   ##desciptives sidebar
   sidebarSummary<-dashboardSidebar(
     selectInput('vara','Select Variable 1', names(DF)),
-    selectInput('vara2','Select Variable 2', listWithoutFactors,selected= listWithoutFactors[3]),
-    selectInput('vara3','Select Variable 3', listWithoutFactors,selected= listWithoutFactors[4]),
+    selectInput('vara2','Select Variable 2', listWithoutFactors,selected= listWithoutFactors[2]),
+    selectInput('vara3','Select Variable 3', listWithoutFactors,selected= listWithoutFactors[2]),
     h4("Grouping Section"),
     selectInput('vargroup','Select variable to group', varlist,selected= "None"),
     selectInput('group','Group by Factor', FactorList)
