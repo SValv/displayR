@@ -39,11 +39,6 @@ limit(default=*8*): describes the maximum number of instances where the variable
 displayR(data,factordeclare = TRUE,limit = 8)
 ```
 
-na.rm(default= *TRUE*): this removes missing values from the dataframe, it is recommended to be set to TRUE, because many functionalities of displayR wont work with missing values.
-```{r, eval=F}
-displayR(data,na.rm = FALSE)
-```
-
 colorPalette(default="None"): this argument gives you more control about the coloring of your plots, if you specify colors you will see them as factor levels in the plots. Note that it is important that your color vector contains as many colors as the levels of your highest-level factor.
 ```{r, eval=F}
 displayR(data,colorPalette = c("green","yellow","black",....,"other custom colors"))

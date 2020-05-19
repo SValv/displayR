@@ -1,4 +1,4 @@
-displayR<-function(DF="None",factordeclare=T,limit=8, na.rm=T, colorPalette="None"){
+displayR<-function(DF="None",factordeclare=T,limit=8,colorPalette="None"){
 
   ## Statics
 
@@ -20,35 +20,38 @@ displayR<-function(DF="None",factordeclare=T,limit=8, na.rm=T, colorPalette="Non
     DF<-loader()
   }else{NULL}
 
-  ##clean missing values functionality
-  if(na.rm==T){
-    DF<-na.omit(DF)
-  }
 
   ##function tab determining factors
-  areFacs<-function(drata,limit){
+  Factordeclare<-function(drata,limit){
+    pattern = "(\\d{1,2}[/\\.-][ ]?)?(\\d{1,2}[ ]*[/\\.-])[ ]*[']?\\d{2,4}"
     for(i in c(1:ncol(drata))){
-      if (length(unique(unlist(drata[,i])))<=limit & !is.factor(as.data.frame(drata%>%select(i))[,1])){
+      if (!is.factor(as.data.frame(drata%>%select(i))[,1]) && length(unique(unlist(drata[,i])))<=limit){
         drata[,i]<-as.factor(unlist(drata[,i]))
-      }else if (length(unique(unlist(drata[,i])))>=limit & !is.factor(as.data.frame(drata%>%select(i))[,1])){
-        if(is.character(as.data.frame(drata%>%select(i))[,1])){
+      }else if (!is.factor(as.data.frame(drata%>%select(i))[,1]) && length(unique(unlist(drata[,i]))>=limit) && !any(grepl("[A-Z]|[a-z]",unlist(drata[,i])))){
+        if (any(grepl(pattern,unlist(drata[,i])))){
+        drata[,i]<-drata[,i]
+        }else if(is.character(as.data.frame(drata%>%select(i))[,1])){
           drata[,i]<-sub(",",".",as.data.frame(drata%>%select(i))[,1])
+          drata[,i]<-as.numeric(unlist(drata[,i]))
+        }else{
+        drata[,i]<-as.numeric(unlist(drata[,i]))
         }
-        drata[,i]<-as.numeric(unlist(drata[,i]))}
+      }
     }
     return(drata)
+
   }
 
   ## Factordeclare functionality
   if(factordeclare==T){
-    DF<-areFacs(DF,limit)
+    DF<-Factordeclare(DF,limit)
   }
 
   ## Vector ohne Faktoren
   vecOhFac<-function(drata){
     vec=c()
     for(i in c(1:ncol(drata))){
-      if(!is.factor(as.data.frame(drata%>%select(i))[,1])){
+      if (!is.factor(as.data.frame(drata%>%select(i))[,1])){
         vec=c(vec,colnames(drata)[i])
       }
     }
@@ -81,8 +84,10 @@ displayR<-function(DF="None",factordeclare=T,limit=8, na.rm=T, colorPalette="Non
   listWithoutFactors<-c("None",listWithoutFactorsON)
   FactorList<-vecFac(DF)
   FactorList<-c("None",FactorList)
-  DataDesc<-"You can check if you loaded the correct dataframe in here, the Variables should be in the rows of the table, the first five observations in the columns.
+  DataDesc<-"You can check if you loaded the correct dataframe in here, the Variables should be in the rows of the table, the first five observations in the columns. Note that Time data will not be recognized by factordeclare and will be converted to NA. If you encounter Problems with your dataset, try declaring factors and other types manually and turn factordeclare off when you rerun the displayR command.
 Thank you for using displayR!"
+
+  DFBackup<-DF
 
   ##Funktionen Data-tab
 
@@ -128,17 +133,17 @@ Thank you for using displayR!"
       colnames(summ)[1]<-col
     }else{
       summ<-drata%>%
-        summarise(Observations=length(get(col)),Mean = mean(get(col)),SD = sd(get(col)),Median=median(get(col)),CoV=sd(get(col))/mean(get(col)),Variance=var(get(col)),Minimum=min(get(col)),Maximum=max(get(col)))
+        summarise(Observations=length(get(col)),Mean = mean(get(col),na.rm=T),SD = sd(get(col),na.rm=T),Median=median(get(col),na.rm=T),CoV=sd(get(col),na.rm=T)/mean(get(col),na.rm=T),Variance=var(get(col),na.rm=T),Minimum=min(get(col),na.rm=T),Maximum=max(get(col),na.rm=T),Missings=sum(is.na(get(col))))
       rownames(summ)[1]<-col
       if(col2!="None"){
         summ2<-drata%>%
-          summarise(Observations=length(get(col2)),Mean = mean(get(col2)),SD = sd(get(col2)),Median=median(get(col2)),CoV=sd(get(col2))/mean(get(col2)),Variance=var(get(col2)),Minimum=min(get(col2)),Maximum=max(get(col2)))
+          summarise(Observations=length(get(col2)),Mean = mean(get(col2),na.rm=T),SD = sd(get(col2),na.rm=T),Median=median(get(col2),na.rm=T),CoV=sd(get(col2),na.rm=T)/mean(get(col2),na.rm=T),Variance=var(get(col2),na.rm=T),Minimum=min(get(col2),na.rm=T),Maximum=max(get(col2),na.rm=T),Missings=sum(is.na(get(col2))))
         rownames(summ2)[1]<-col2
         summ<-rbind(summ,summ2)
       }
       if(col3!="None"){
         summ3<-drata%>%
-          summarise(Observations=length(get(col3)),Mean = mean(get(col3)),SD = sd(get(col3)),Median=median(get(col3)),CoV=sd(get(col3))/mean(get(col3)),Variance=var(get(col3)),Minimum=min(get(col3)),Maximum=max(get(col3)))
+          summarise(Observations=length(get(col3)),Mean = mean(get(col3),na.rm=T),SD = sd(get(col3),na.rm=T),Median=median(get(col3),na.rm=T),CoV=sd(get(col3),na.rm=T)/mean(get(col3),na.rm=T),Variance=var(get(col3),na.rm=T),Minimum=min(get(col3),na.rm=T),Maximum=max(get(col3),na.rm=T),Missings=sum(is.na(get(col3))))
         rownames(summ3)[1]<-col3
         summ<-rbind(summ,summ3)
       }
@@ -156,7 +161,7 @@ Thank you for using displayR!"
       }else{
         DS<-drata%>%
           group_by(name = get(group)) %>%
-          summarise(Observations=length(get(trat)),Mean = mean(get(trat)),SD = sd(get(trat)),Median=median(get(trat)),CoV=sd(get(trat))/mean(get(trat)),Variance=var(get(trat)),Minimum=min(get(trat)),Maximum=max(get(trat)))
+          summarise(Observations=length(get(trat)),Mean = mean(get(trat),na.rm=T),SD = sd(get(trat),na.rm=T),Median=median(get(trat),na.rm=T),CoV=sd(get(trat),na.rm=T)/mean(get(trat),na.rm=T),Variance=var(get(trat),na.rm=T),Minimum=min(get(trat),na.rm=T),Maximum=max(get(trat),na.rm=T),Missings=sum(is.na(get(trat))))
         DS<-t(format.data.frame(DS,digits=3))
       }
       return(DS)
@@ -199,7 +204,7 @@ Thank you for using displayR!"
     return(cp)
   }
 
-  ##Sidebar of App
+  ### Sidebar of App
 
   ##desciptives sidebar
   sidebarSummary<-dashboardSidebar(

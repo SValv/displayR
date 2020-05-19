@@ -2,7 +2,7 @@
 \alias{displayR}
 \title{explore and visualize data}
 \usage{
-displayR(DF = "None", factordeclare = TRUE, limit = 8, na.rm = TRUE, colorPalette = "None")
+displayR(DF = "None", factordeclare = TRUE, limit = 8, colorPalette = "None")
 }
 \description{
 Main function of the displayR package. displayR is a package for easy and quick exploration and visualisation of data directed to people with little experience in R
@@ -13,8 +13,6 @@ Main function of the displayR package. displayR is a package for easy and quick 
   \item{factordeclare}{if your dataframe isnt already structured (the factors are not declared as factors) this argument will do it for you by using the limit argument as margin.}
 
   \item{limit}{describes the maximum number of instances where the variable is converted into a factor, if the instances(determined by the length of the unique-vector) are higher, the variable wont be converted.}
-
-  \item{na.rm}{if set to TRUE, na.rm removes missing values from the dataframe, it is recommended to be set to TRUE, because many functionalities of displayR wont work with missing values.}
 
   \item{colorPalette}{this argument gives you more control about the coloring of your plots, if you specify colors you will see them as factor levels in the plots. Note that it is important that your color vector contains as many colors as the levels of your highest-level factor.}
 
