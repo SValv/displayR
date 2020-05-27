@@ -18,6 +18,8 @@ displayR<-function(DF="None",factordeclare=T,limit=8,colorPalette="None"){
   ## load file functionality
   if(DF=="None"){
     DF<-loader()
+  }else{
+    DF<-as.data.frame(DF)
   }
 
   ##function tab determining factors
@@ -265,7 +267,7 @@ Thank you for using displayR!"
 
 
   ##App- final UI
-  ui<-navbarPage("displayR", theme = shinytheme("cosmo"),#themeSelector(),
+  ui<-navbarPage("displayR", theme = shinytheme("cosmo"),
                  tabPanel("Data",
                           sidebarLayout(
                             sidebarPanel(DataDesc

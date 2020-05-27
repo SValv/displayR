@@ -32,7 +32,7 @@ displayR()
 displayR(data)
 
 ##without manipulation of data
-displayR(data,factordeclare = FALSE, na.rm = FALSE)
+displayR(data,factordeclare = FALSE)
 
 ##change colors in plots by factor. do not run, as "..." will throw an error
 displayR(data,colorPalette = c("green","yellow","black",....,"other custom colors"))

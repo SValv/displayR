@@ -1,7 +1,7 @@
 Package: displayR
 Type: Package
 Title: Easy and quick data exploration
-Version: 1.0.0
+Version: 1.0.1
 Author: as.person("Simon Valverde")
 Maintainer: Simon Valverde <s.valverde146@gmail.com>
 Description: displayR is a package for easy and quick exploration and visualisation of data directed to people with little expirience in R.    It makes it easy for people with less to no expirience in R to make high quality plots and get insight into their data.
