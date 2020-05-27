@@ -8,6 +8,7 @@ importFrom(plotly,plotlyOutput)
 importFrom(plotly,plot_ly)
 importFrom(plotly,add_trace)
 
+importFrom(DT,JS)
 importFrom(DT,datatable)
 importFrom(DT,renderDT)
 importFrom(DT,formatRound)

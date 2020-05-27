@@ -1,3 +1,4 @@
 Version 0.1.0 - Initialisation of displayR (Date: 22.04.2020)
 Version 0.1.1 - Fixed Bug: Generating NA while auto-loading data with "," delimiter useing fread. (Date: 26.04.2020)
 Version 1.0.0 - Description of NA's, better functionality of the Loader. (Date: 19.5.2020)
+Version 1.0.1 - Fixed Namespace (Date: 27.5.2020)

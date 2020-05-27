@@ -18,8 +18,7 @@ displayR<-function(DF="None",factordeclare=T,limit=8,colorPalette="None"){
   ## load file functionality
   if(DF=="None"){
     DF<-loader()
-  }else{NULL}
-
+  }
 
   ##function tab determining factors
   Factordeclare<-function(drata,limit){
