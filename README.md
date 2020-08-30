@@ -8,13 +8,13 @@ DisplayR offers a fast and easy to use insight into data and a comparatively dee
 
 The advantages of this package are that it can be applied to almost any data set and thus, in addition to the results confirmation for study participants, it is a tool for the visual and statistical exploration of data sets. It can also be used by people who do not feel comfortable with the R programming language, as the package is easy and uncomplicated to use. Therefore it can be used for data exploration. 
 
+Thank you for your interest in my package, i hope you enjoy it if you use it!
+
 ## Example
 
-This is a example of displayR useing a simulated dataset. Make yourself familiar with the functionalities by experimenting and trying around. Note that computation speed is way slower than on your own machine if you use displayR locally, because it is hosted locally - not in the web - which normally makes it a lot faster.
+This is a link to an example of displayR useing a simulated dataset. You can make yourself familiar with the functionalities by experimenting and trying around. Note that computation speed is slower than on your own machine if you use displayR locally, because it is hosted locally - not in the web - which normally makes it a lot faster.
 
-```{r ,echo=F,warning=F,message=F,error=F, fig.width=10}
-knitr::include_app("https://svalv.shinyapps.io/displayR/", height = '800px')
-```
+https://svalv.shinyapps.io/displayR
 
 
 ## Installation and Usage
