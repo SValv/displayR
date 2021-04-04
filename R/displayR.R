@@ -174,7 +174,7 @@ Thank you for using displayR!"
 
   ### Makes correlation Matrix
   vcor<-function(drata,inputs){
-    g<-format(cor(drata[,inputs],na.rm=T),digits=3)
+    g<-format(cor(drata[,inputs],use="pairwise.complete.obs"),digits=3)
     return(g)
   }
 
